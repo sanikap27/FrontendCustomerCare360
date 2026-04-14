@@ -1,0 +1,78 @@
+.card {
+
+  background: #fff;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+}
+
+h2 {
+
+  margin-bottom: 15px;
+
+  color: #2c3e50;
+
+}
+
+.table-custom {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+}
+
+.table-custom thead {
+
+  background: #2c3e50;
+
+  color: white;
+
+}
+
+.table-custom th,
+
+.table-custom td {
+
+  padding: 10px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #ddd;
+
+}
+
+.table-custom tbody tr:hover {
+
+  background: #f5f7fa;
+
+}
+
+/* Status colors */
+
+.paid {
+
+  color: #2ecc71;
+
+  font-weight: bold;
+
+}
+
+.pending {
+
+  color: #f39c12;
+
+  font-weight: bold;
+
+}
+
+.overdue {
+
+  color: #e74c3c;
+
+  font-weight: bold;
+
+}
+ 

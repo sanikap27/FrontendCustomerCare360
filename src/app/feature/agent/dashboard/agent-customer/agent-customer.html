@@ -1,0 +1,38 @@
+<div class="container">
+<h2>Customers</h2>
+<!-- FORM -->
+<div class="form-row">
+<input type="number" placeholder="User ID" [(ngModel)]="customer.userId">
+<input type="text" placeholder="Customer Type" [(ngModel)]="customer.customerType">
+<input type="text" placeholder="Contact Info" [(ngModel)]="customer.contactInfo">
+<input type="text" placeholder="Status" [(ngModel)]="customer.status">
+<button (click)="addCustomer()">Add</button>
+</div>
+<!-- TABLE -->
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>User ID</th>
+<th>Type</th>
+<th>Contact</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let c of customers">
+<td>{{c.customerId}}</td>
+<td>{{c.userId}}</td>
+<td>{{c.customerType}}</td>
+<td>{{c.contactInfo}}</td>
+<td>{{c.status}}</td>
+<td>
+<button (click)="editCustomer(c)">Edit</button>
+<!-- ❌ DELETE REMOVED -->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 

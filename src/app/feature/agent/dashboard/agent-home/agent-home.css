@@ -1,0 +1,48 @@
+.grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin-top: 20px;
+
+}
+
+.card {
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  color: white;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+.card:hover {
+
+  transform: scale(1.05);
+
+}
+
+.blue { background: #2196f3; }
+
+.cyan { background: #00bcd4; }
+
+.green { background: #4caf50; }
+
+.purple { background: #9c27b0; }
+
+.orange { background: #ff9800; }
+
+.red { background: #f44336; }
+
+.dark { background: #333; }
+ 

@@ -1,0 +1,50 @@
+<div class="container">
+<h2>Billing Cycles</h2>
+<!-- ADD FORM -->
+<div class="form">
+<input type="text" placeholder="Service Type" [(ngModel)]="newCycle.serviceType">
+<input type="date" [(ngModel)]="newCycle.periodStart">
+<input type="date" [(ngModel)]="newCycle.periodEnd">
+<input type="date" [(ngModel)]="newCycle.billDate">
+<input type="text" placeholder="Status" [(ngModel)]="newCycle.status">
+<button (click)="addCycle()">Add</button>
+</div>
+<!-- TABLE -->
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Service</th>
+<th>Start</th>
+<th>End</th>
+<th>Bill Date</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let c of cycles">
+<td>{{c.billingCycleID}}</td>
+<td>{{c.serviceType}}</td>
+<td>{{c.periodStart | date}}</td>
+<td>{{c.periodEnd | date}}</td>
+<td>{{c.billDate | date}}</td>
+<td>{{c.status}}</td>
+<td>
+<button class="edit" (click)="editCycle(c)">Edit</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- UPDATE FORM -->
+<div *ngIf="selectedCycle" class="update-form">
+<h3>Update Billing Cycle</h3>
+<input [(ngModel)]="selectedCycle.serviceType">
+<input type="date" [(ngModel)]="selectedCycle.periodStart">
+<input type="date" [(ngModel)]="selectedCycle.periodEnd">
+<input type="date" [(ngModel)]="selectedCycle.billDate">
+<input [(ngModel)]="selectedCycle.status">
+<button (click)="updateCycle()">Update</button>
+</div>
+</div>
+ 

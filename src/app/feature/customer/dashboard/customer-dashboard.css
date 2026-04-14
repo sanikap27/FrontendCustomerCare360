@@ -1,0 +1,183 @@
+/* Layout */
+
+.layout {
+
+  display: flex;
+
+  height: 100vh;
+
+  background: #f5f7fb;
+
+}
+
+/* Main */
+
+.main {
+
+  flex: 1;
+display: flex;
+flex-direction: column;
+  padding: 20px;
+
+}
+/* app-sidebar {
+  width: 220px;
+} */
+/* Header */
+
+.header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: white;
+
+  padding: 15px 20px;
+
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+
+}
+
+.header h2 {
+
+  margin: 0;
+
+  font-size: 20px;
+
+}
+
+.header p {
+
+  margin: 0;
+
+  color: gray;
+
+  font-size: 14px;
+
+}
+
+.profile-icon {
+
+  background: #eef2ff;
+
+  padding: 10px;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+}
+
+/* Cards */
+
+.cards {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+
+  margin: 20px 0;
+
+}
+
+.card {
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  color: white;
+
+  transition: 0.3s;
+
+}
+
+.card:hover {
+
+  transform: translateY(-5px);
+
+}
+
+.card p {
+
+  margin: 0;
+
+  font-size: 14px;
+
+}
+
+.card h2 {
+
+  margin: 10px 0 0;
+
+}
+
+/* Colors */
+
+.blue { background: linear-gradient(45deg, #2563eb, #3b82f6); }
+
+.green { background: linear-gradient(45deg, #16a34a, #22c55e); }
+
+.yellow { background: linear-gradient(45deg, #f59e0b, #fbbf24); }
+
+.red { background: linear-gradient(45deg, #dc2626, #ef4444); }
+
+/* Boxes */
+
+.box {
+
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  margin-top: 20px;
+
+}
+
+.box h4 {
+
+  margin-bottom: 10px;
+
+}
+
+/* Input */
+
+input {
+
+  width: 80%;
+
+  padding: 10px;
+
+  margin-right: 10px;
+
+  border-radius: 6px;
+
+  border: 1px solid #ccc;
+
+}
+
+button {
+
+  padding: 10px 15px;
+
+  background: #ef4444;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+}
+ 

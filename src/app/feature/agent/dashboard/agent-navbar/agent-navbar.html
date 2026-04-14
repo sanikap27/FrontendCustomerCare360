@@ -1,0 +1,14 @@
+<div class="navbar">
+<div class="title">Agent Dashboard</div>
+<div class="profile-section" (click)="toggleDropdown()">
+
+    👤
+<div class="dropdown"
+
+         *ngIf="showDropdown"
+
+         (click)="$event.stopPropagation()">
+<a (click)="goToProfile()">View Profile</a>
+</div>
+</div>
+</div>

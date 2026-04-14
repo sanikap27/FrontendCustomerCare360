@@ -1,0 +1,119 @@
+.dashboard {
+
+  height: 100vh;
+
+  display: flex;
+
+  justify-content: center;   /* center horizontally */
+
+  align-items: center;       /* center vertically */
+
+  background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+
+}
+
+/* Inner container */
+
+.content {
+
+  text-align: center;
+
+}
+
+/* Profile Card */
+
+.profile-card {
+
+  background: white;
+
+  padding: 25px;
+
+  width: 280px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+  margin: auto;
+
+  margin-bottom: 25px;
+
+  transition: 0.3s;
+
+}
+
+.profile-card:hover {
+
+  transform: translateY(-5px);
+
+}
+
+
+/* Heading */
+
+h2 {
+
+  color: #333;
+
+  margin-bottom: 20px;
+
+}
+
+/* Buttons */
+
+.actions button {
+
+  margin: 8px;
+
+  padding: 12px 22px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  color: white;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+/* Soft color palette */
+
+.actions button:nth-child(1) {
+
+  background: #4facfe;   /* blue */
+
+}
+
+.actions button:nth-child(2) {
+
+  background: #43e97b;   /* green */
+
+}
+
+.actions button:nth-child(3) {
+
+  background: #f6d365;   /* yellow */
+
+  color: black;
+
+}
+
+.actions button:nth-child(4) {
+
+  background: #ff6a6a;   /* red */
+
+}
+
+/* Hover */
+
+.actions button:hover {
+
+  transform: scale(1.05);
+
+}
+ 

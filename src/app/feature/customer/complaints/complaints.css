@@ -1,0 +1,146 @@
+/* MAIN LAYOUT */
+
+.main-container {
+
+  display: flex;
+
+  gap: 20px;
+
+  padding: 20px;
+
+  align-items: flex-start;
+
+}
+
+/* FORM SMALL CARD */
+
+.form-card {
+
+  width: 320px;              /* 👈 smaller form */
+
+  background: #fff;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+}
+
+/* FORM INPUTS */
+
+.form-card select,
+
+.form-card textarea {
+
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 8px;
+
+  border-radius: 6px;
+
+  border: 1px solid #ccc;
+
+  font-size: 13px;
+
+}
+
+/* TEXTAREA SMALL */
+
+.form-card textarea {
+
+  height: 80px;   /* 👈 reduce height */
+
+  resize: none;
+
+}
+
+/* BUTTON */
+
+.form-card button {
+
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 8px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: linear-gradient(to right, #007bff, #00c6ff);
+
+  color: white;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+}
+
+/* TABLE SIDE */
+
+.table-container {
+
+  flex: 1;   /* 👈 takes remaining space */
+
+  background: #fff;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+}
+
+/* TABLE */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+}
+
+thead {
+
+  background: linear-gradient(to right, #007bff, #00c6ff);
+
+  color: white;
+
+}
+
+th, td {
+
+  padding: 10px;
+
+  text-align: left;
+
+  font-size: 13px;
+
+  border-bottom: 1px solid #eee;
+
+}
+
+/* STATUS */
+
+.status {
+
+  padding: 4px 8px;
+
+  border-radius: 10px;
+
+  background: #ffe0e0;
+
+  color: red;
+
+  font-size: 12px;
+
+}
+ 

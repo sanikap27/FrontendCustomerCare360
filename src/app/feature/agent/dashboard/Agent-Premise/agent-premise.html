@@ -1,0 +1,22 @@
+<h2>Premises</h2>
+<table class="table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Address</th>
+<th>Region</th>
+<th>Meter ID</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let p of premises">
+<td>{{ p.premiseId }}</td>
+<td>{{ p.address }}</td>
+<td>{{ p.region }}</td>
+<td>{{ p.meterId }}</td>
+<td>{{ p.status }}</td>
+</tr>
+</tbody>
+</table>
+ 

@@ -1,0 +1,44 @@
+h2 {
+
+  margin-bottom: 15px;
+
+}
+
+.table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+}
+
+th {
+
+  background: #0f172a;
+
+  color: white;
+
+  padding: 12px;
+
+}
+
+td {
+
+  padding: 10px;
+
+  border-bottom: 1px solid #ddd;
+
+}
+
+tr:hover {
+
+  background: #f9fafb;
+
+}
+ 

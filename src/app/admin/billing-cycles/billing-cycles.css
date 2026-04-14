@@ -1,0 +1,94 @@
+.card {
+
+  background: #fff;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+}
+
+h2 {
+
+  margin-bottom: 15px;
+
+  color: #2c3e50;
+
+}
+
+.table-custom {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+}
+
+.table-custom thead {
+
+  background: #2c3e50;
+
+  color: white;
+
+}
+
+.table-custom th,
+
+.table-custom td {
+
+  padding: 10px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #ddd;
+
+}
+
+.table-custom tbody tr:hover {
+
+  background: #f5f7fa;
+
+}
+
+/* Status badges */
+
+.status-open {
+
+  color: #e67e22;
+
+  font-weight: bold;
+
+}
+
+.status-completed {
+
+  color: #2ecc71;
+
+  font-weight: bold;
+
+}
+
+/* Delete button */
+
+.btn-delete {
+
+  background: #e74c3c;
+
+  color: white;
+
+  border: none;
+
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+}
+
+.btn-delete:hover {
+
+  background: #c0392b;
+
+}
+ 

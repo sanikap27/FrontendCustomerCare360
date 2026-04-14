@@ -1,0 +1,60 @@
+<div class="container">
+<h2>Bills</h2>
+<!-- ADD FORM -->
+<div class="form">
+<input type="number" placeholder="Service Account ID" [(ngModel)]="newBill.serviceAccountId">
+<input type="number" placeholder="Billing Cycle ID" [(ngModel)]="newBill.billingCycleId">
+<input type="number" placeholder="Usage" [(ngModel)]="newBill.usage">
+<input type="number" placeholder="Amount" [(ngModel)]="newBill.amount">
+<input type="date" [(ngModel)]="newBill.dueDate">
+<input type="text" placeholder="Status" [(ngModel)]="newBill.status">
+<button class="add-btn" (click)="addBill()">Add</button>
+</div>
+<!-- TABLE -->
+<div class="table-container">
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>ServiceAcc</th>
+<th>Cycle</th>
+<th>Usage</th>
+<th>Amount</th>
+<th>Due Date</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let bill of bills">
+<td>{{bill.billId}}</td>
+<td>{{bill.serviceAccountId}}</td>
+<td>{{bill.billingCycleId}}</td>
+<td>{{bill.usage}}</td>
+<td>{{bill.amount}}</td>
+<td>{{bill.dueDate | date}}</td>
+<td>{{bill.status}}</td>
+<td>
+<button>Edit</button>
+<button (click)="deleteBill(bill.billId)">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+ 
+<!-- UPDATE -->
+<div *ngIf="selectedBill" class="update-form">
+<h3>Update Bill</h3>
+<input [(ngModel)]="selectedBill.serviceAccountId">
+<input [(ngModel)]="selectedBill.billingCycleId">
+<input [(ngModel)]="selectedBill.usage">
+<input [(ngModel)]="selectedBill.amount">
+<input type="date" [(ngModel)]="selectedBill.dueDate">
+<input [(ngModel)]="selectedBill.status">
+<button (click)="updateBill()">Update</button>
+</div>
+</div>
+ 

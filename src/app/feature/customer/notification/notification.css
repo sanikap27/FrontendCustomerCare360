@@ -1,0 +1,52 @@
+.notification-card {
+
+  background: #fff;
+
+  border-radius: 10px;
+
+  padding: 15px;
+
+  border: 1px solid #eee;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  transition: 0.3s;
+  bottom-margin: 20px;
+  border-radius: 8px;
+
+}
+
+.notification-card:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+}
+
+.icon {
+
+  background: #f1f5ff;
+
+  color: #0d6efd;
+
+  border-radius: 50%;
+
+  padding: 10px;
+
+  font-size: 18px;
+
+}
+
+button {
+
+  border-radius: 20px;
+
+}
+ 
+.notification-container {
+
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 5px;
+}

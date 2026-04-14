@@ -1,0 +1,39 @@
+<h2>Adjustments</h2>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Bill ID</th>
+<th>Reason</th>
+<th>Amount</th>
+<th>Approved By</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let a of adjustments">
+<td>{{a.adjustmentId}}</td>
+<td>{{a.billId}}</td>
+<td>{{a.reason}}</td>
+<td>{{a.amountDelta}}</td>
+<td>{{a.approvedBy || '-'}}</td>
+<td>
+<span class="status"
+
+            [ngClass]="{
+
+              'approved': a.status === 'Approved',
+
+              'pending': a.status !== 'Approved'
+
+            }">
+
+            {{a.status}}
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 

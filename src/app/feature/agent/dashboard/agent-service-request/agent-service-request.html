@@ -1,0 +1,40 @@
+<div class="container">
+<h2>Service Requests</h2>
+<!-- TABLE -->
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Customer</th>
+<th>Type</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let r of requests">
+<td>{{r.serviceRequestId}}</td>
+<td>{{r.customerId}}</td>
+<td>{{r.requestType}}</td>
+<td>{{r.priority}}</td>
+<td>{{r.status}}</td>
+<td>{{r.createdDate | date:'short'}}</td>
+<td>
+<button (click)="editRequest(r)">Edit</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- EDIT FORM -->
+<div *ngIf="selectedRequest" class="form">
+<h3>Edit Request</h3>
+<input [(ngModel)]="selectedRequest.requestType" placeholder="Type">
+<input [(ngModel)]="selectedRequest.priority" placeholder="Priority">
+<input [(ngModel)]="selectedRequest.status" placeholder="Status">
+<button (click)="updateRequest()">Update</button>
+</div>
+
+</div>
+ 

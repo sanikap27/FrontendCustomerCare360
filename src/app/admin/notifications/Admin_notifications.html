@@ -1,0 +1,63 @@
+<div class="card">
+<h2>Notifications</h2>
+<!-- FORM -->
+<div class="form">
+<input type="number" placeholder="User ID"
+
+           [(ngModel)]="newNotification.userId">
+<input type="text" placeholder="Message"
+
+           [(ngModel)]="newNotification.message">
+<select [(ngModel)]="newNotification.category">
+<option>Bill</option>
+<option>Service</option>
+<option>Complaint</option>
+</select>
+<button class="btn-add" (click)="createNotification()">
+
+      Send Notification
+</button>
+</div>
+<!-- SUCCESS MESSAGE -->
+<p class="success" *ngIf="successMsg">{{ successMsg }}</p>
+<!-- TABLE -->
+<div class="table-container">
+<table class="table-custom">
+<thead>
+<tr>
+<th>ID</th>
+<th>User ID</th>
+<th>Message</th>
+<th>Category</th>
+<th>Status</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let n of notifications">
+<td>{{ n.notificationId }}</td>
+<td>{{ n.userId }}</td>
+<td>{{ n.message }}</td>
+<td>{{ n.category }}</td>
+<td>
+<span [class]="n.status === 'Unread' ? 'badge-red' : 'badge-green'">
+
+              {{ n.status }}
+</span>
+</td>
+<td>{{ n.createdDate | date:'short' }}</td>
+<td>
+<button class="btn-delete"
+
+                    (click)="deleteNotification(n.notificationId)">
+
+              Delete
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+ 

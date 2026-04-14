@@ -1,0 +1,32 @@
+<h2>Dashboard</h2>
+<div class="grid">
+<div class="card blue" (click)="router.navigate(['/agent/customers'])">
+<h3>Customers</h3>
+<p>{{ customersCount }}</p>
+</div>
+<div class="card cyan" (click)="router.navigate(['/agent/service-request'])">
+<h3>Requests</h3>
+<p>{{ requestsCount }}</p>
+</div>
+<div class="card green" (click)="router.navigate(['/agent/orders'])">
+<h3>Orders</h3>
+<p>{{ ordersCount }}</p>
+</div>
+<div class="card purple" (click)="router.navigate(['/agent/premises'])">
+<h3>Premises</h3>
+<p>{{ premisesCount }}</p>
+</div>
+<div class="card orange" (click)="router.navigate(['/agent/adjustments'])">
+<h3>Adjustments</h3>
+<p>{{ adjustmentsCount }}</p>
+</div>
+<div class="card red" (click)="router.navigate(['/agent/complaints'])">
+<h3>Complaints</h3>
+<p>{{ complaintsCount }}</p>
+</div>
+<div class="card dark" (click)="router.navigate(['/agent/notifications'])">
+<h3>Notifications</h3>
+<p>{{ notificationsCount }}</p>
+</div>
+</div>
+ 

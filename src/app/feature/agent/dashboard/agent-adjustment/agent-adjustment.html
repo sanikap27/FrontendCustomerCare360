@@ -1,0 +1,37 @@
+<h2>Adjustments</h2>
+<!-- ADD FORM -->
+<div class="form">
+<input type="number" [(ngModel)]="newAdjustment.billId" placeholder="Bill ID">
+<input type="text" [(ngModel)]="newAdjustment.reason" placeholder="Reason">
+<input type="number" [(ngModel)]="newAdjustment.amountDelta" placeholder="Amount">
+<button (click)="addAdjustment()">Add</button>
+</div>
+<!-- TABLE -->
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Bill ID</th>
+<th>Reason</th>
+<th>Amount</th>
+<th>Status</th>
+<th>Approved By</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let a of adjustments">
+<td>{{ a.adjustmentId }}</td>
+<td>{{ a.billId }}</td>
+<td>{{ a.reason }}</td>
+<td>{{ a.amountDelta }}</td>
+<td>{{ a.status }}</td>
+<td>{{ a.approvedBy }}</td>
+<td>
+<button (click)="approve(a.adjustmentId)">Approve</button>
+<button (click)="delete(a.adjustmentId)">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+ 

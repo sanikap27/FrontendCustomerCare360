@@ -1,0 +1,130 @@
+.main-content {
+
+  margin-left: 220px;
+  width:calc(100% - 220px);
+  height: 100vh;
+
+  padding: 40px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+/* TITLE */
+
+.dashboard-title {
+
+  font-size: 30px;
+
+  font-weight: 600;
+
+  margin-bottom: 30px;
+
+}
+
+/* CONTAINER BOX */
+
+.dashboard-container {
+
+  width: 100%;
+
+  max-width: 900px;
+
+  background: #ffffff;
+
+  padding: 30px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+}
+
+/* CARDS ROW */
+
+.cards {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+}
+
+/* CARD STYLE */
+
+.card {
+
+  flex: 1;
+
+  height: 130px;
+
+  border-radius: 15px;
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+
+  transition: 0.3s;
+
+}
+
+/* TEXT */
+
+.card h5 {
+
+  font-size: 16px;
+
+  margin-bottom: 8px;
+
+}
+
+.card h2 {
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+}
+
+/* COLORS */
+
+.blue {
+
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+
+}
+
+.yellow {
+
+  background: linear-gradient(135deg, #ff9800, #ffc107);
+
+}
+
+.red {
+
+  background: linear-gradient(135deg, #f44336, #ff6b6b);
+
+}
+
+/* HOVER */
+
+.card:hover {
+
+  transform: translateY(-5px);
+
+}
+ 

@@ -1,0 +1,28 @@
+<div class="navbar">
+<div class="title">
+
+   <h2>Welcome, {{ user?.name }}</h2>
+</div>
+<div class="d-flex align-items-center gap-3">
+<!-- Notification Bell -->
+<div class="position-relative" (click)="goToNotifications()" style="cursor: pointer;">
+<i class="bi bi-bell fs-4"></i>
+<!-- Badge -->
+<span
+     *ngIf="notificationCount > 0"
+     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+     {{ unreadCount }}
+</span>
+</div>
+ 
+<div class="profile" (click)="toggleMenu()">
+
+    👤 
+    <br>{{ user?.name }}
+<div class="dropdown" *ngIf="showMenu">
+<div (click)="goProfile()">Profile</div>
+
+</div>
+</div>
+</div>
+ 

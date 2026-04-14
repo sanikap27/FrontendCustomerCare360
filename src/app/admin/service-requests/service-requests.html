@@ -1,0 +1,51 @@
+<div class="card">
+<h2>Service Requests</h2>
+<table class="table-custom">
+<thead>
+<tr>
+<th>Request ID</th>
+<th>Customer ID</th>
+<th>Request Type</th>
+<th>Created Date</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let r of requests">
+<td>{{ r.serviceRequestId }}</td>
+<td>{{ r.customerId }}</td>
+<td>
+<select [(ngModel)]="r.requestType" class="dropdown">
+<option>NewConnection</option>
+<option>Disconnect</option>
+<option>Complaint</option>
+<option>Inquiry</option>
+</select>
+</td>
+<td>{{ r.createdDate | date:'short' }}</td>
+<td>
+<select [(ngModel)]="r.priority" class="dropdown">
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+</select>
+</td>
+<td>
+<select [(ngModel)]="r.status" class="dropdown">
+<option>Open</option>
+<option>InProgress</option>
+<option>Resolved</option>
+<option>Closed</option>
+</select>
+</td>
+<td class="actions">
+<button class="btn-update" (click)="updateRequest(r)">Update</button>
+<button class="btn-delete" (click)="deleteRequest(r.serviceRequestId)">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 

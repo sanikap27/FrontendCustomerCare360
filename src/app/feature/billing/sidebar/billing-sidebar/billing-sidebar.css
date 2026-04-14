@@ -1,0 +1,54 @@
+.sidebar {
+
+    width: 220px;
+
+    background: linear-gradient(to bottom, #1e293b, #0f172a);
+
+    color: white;
+
+    padding: 20px;
+
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.sidebar a {
+
+    color: white;
+
+    padding: 10px;
+
+    margin: 8px 0;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+}
+
+.sidebar a:hover,
+
+.sidebar .active {
+
+    background: #3b82f6;
+
+}
+
+.logout-btn {
+
+    /* margin-top: auto; */
+
+    padding: 10px;
+
+    background: red;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+}

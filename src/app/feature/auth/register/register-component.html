@@ -1,0 +1,40 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow" style="width: 400px;">
+    <h3 class="text-center mb-3">Register</h3>
+
+    <form [formGroup]="form" (ngSubmit)="onRegister()">
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+      </div>
+
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+      </div>
+
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Phone" formControlName="phone">
+      </div>
+
+      <div class="mb-3">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password">
+      </div>
+
+      <!-- <div class="mb-3">
+        <select class="form-control" formControlName="role">
+          <option value="">Select Role</option>
+          <option value="Admin">Admin</option>
+          <option value="Customer">Customer</option>
+          <option value="Agent">Agent</option>
+          <option value="Billing">Billing</option>
+        </select>
+      </div> -->
+
+      <button type="submit" class="btn btn-dark w-100">Register</button>
+
+      <p class="text-center mt-3">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+      </p>
+    </form>
+  </div>
+</div>

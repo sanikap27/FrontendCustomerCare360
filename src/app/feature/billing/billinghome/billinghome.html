@@ -1,0 +1,30 @@
+<div class="dashboard">
+<h2>Billing Dashboard</h2>
+<!-- 🔥 CARDS -->
+<div class="cards">
+<div class="card blue">
+<h3>Total Bills</h3>
+<p>{{ totalBills }}</p>
+</div>
+<div class="card green">
+<h3>Total Amount</h3>
+<p>₹ {{ totalAmount }}</p>
+</div>
+<div class="card orange">
+<h3>Adjustments</h3>
+<p>{{ totalAdjustments }}</p>
+</div>
+<div class="card red">
+<h3>Approved</h3>
+<p>{{ approvedAdjustments }}</p>
+</div>
+</div>
+<!-- 📊 SIMPLE TREND -->
+<div class="trend-box">
+<h3>Adjustment Trends</h3>
+<p>Total Adjustments: {{ totalAdjustments }}</p>
+<p>Approved: {{ approvedAdjustments }}</p>
+<p>Pending: {{ totalAdjustments - approvedAdjustments }}</p>
+</div>
+</div>
+ 

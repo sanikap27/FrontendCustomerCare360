@@ -1,0 +1,86 @@
+.container {
+
+  padding: 20px;
+
+}
+
+h2 {
+
+  margin-bottom: 20px;
+
+}
+
+.form-row {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+}
+
+input {
+
+  padding: 8px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 6px;
+
+}
+
+button {
+
+  padding: 8px 12px;
+
+  border: none;
+
+  background: #22c55e;
+
+  color: white;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+}
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+}
+
+th {
+
+  background: #1e293b;
+
+  color: white;
+
+  padding: 10px;
+
+}
+
+td {
+
+  padding: 10px;
+
+  border-bottom: 1px solid #eee;
+
+}
+
+button:hover {
+
+  opacity: 0.8;
+
+}
+ 

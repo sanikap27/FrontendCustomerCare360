@@ -1,0 +1,18 @@
+<div class="dashboard">
+<div class="content">
+<h2>Welcome, {{ adminName }} </h2>
+<div class="profile-card">
+
+<h3> Name : {{ adminName }}</h3>
+<p>Role : Admin</p>
+<p>Email : {{ adminEmail }}</p>
+</div>
+<div class="actions">
+<button (click)="goTo('customers')">Customers</button>
+<button (click)="goTo('bills')">Bills</button>
+<button (click)="goTo('complaints')">Complaints</button>
+<button (click)="goTo('notifications')">Notifications</button>
+</div>
+</div>
+</div>
+ 

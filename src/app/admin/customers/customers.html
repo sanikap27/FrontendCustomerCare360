@@ -1,0 +1,39 @@
+<div class="container">
+<h2>Customers</h2>
+<div class="form-row">
+<input type="number" [(ngModel)]="form.userId" placeholder="User ID">
+<input type="text" [(ngModel)]="form.customerType" placeholder="Customer Type">
+<input type="text" [(ngModel)]="form.contactInfo" placeholder="Contact Info">
+<input type="text" [(ngModel)]="form.status" placeholder="Status">
+<button class="add-btn" (click)="saveCustomer()">Add</button>
+</div>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>User ID</th>
+<th>Type</th>
+<th>Contact</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let c of customers">
+<td>{{c.customerId}}</td>
+<td>{{c.userId}}</td>
+<td>{{c.customerType}}</td>
+<td>{{c.contactInfo}}</td>
+<td [ngClass]="c.status.toLowerCase() === 'active' ? 'active' : 'inactive'">
+
+          {{c.status}}
+</td>
+<td>
+<button class="edit-btn" (click)="editCustomer(c)">Edit</button>
+<button class="delete-btn" (click)="deleteCustomer(c.customerId)">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 

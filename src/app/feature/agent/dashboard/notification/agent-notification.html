@@ -1,0 +1,8 @@
+<h2>Send Notification</h2>
+<div class="form-box">
+<input type="number" [(ngModel)]="notification.userId" placeholder="User ID">
+<input type="text" [(ngModel)]="notification.category" placeholder="Category">
+<textarea [(ngModel)]="notification.message" placeholder="Message"></textarea>
+<button (click)="sendNotification()">Send</button>
+</div>
+ 

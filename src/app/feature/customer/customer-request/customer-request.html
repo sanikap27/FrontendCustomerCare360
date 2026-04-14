@@ -1,0 +1,74 @@
+<div class="main-container">
+<!-- LEFT: FORM -->
+<div class="form-card">
+<h3>Create Service Request</h3>
+<!-- Type -->
+<select [(ngModel)]="requestForm.requestType">
+<option value="">Select Type</option>
+<option value="NewConnection">New Connection</option>
+<option value="Disconnect">Disconnect</option>
+<option value="Complaint">Complaint</option>
+<option value="Inquiry">Inquiry</option>
+</select>
+<!-- Priority -->
+<select [(ngModel)]="requestForm.priority">
+<option value="">Select Priority</option>
+<option value="Low">Low</option>
+<option value="Medium">Medium</option>
+<option value="High">High</option>
+</select>
+<!-- Button -->
+<button (click)="submitRequest()" [disabled]="loading">
+
+      {{ loading ? 'Submitting...' : 'Submit' }}
+</button>
+</div>
+<!-- RIGHT: TABLE -->
+<div class="table-container">
+<h3>Your Requests</h3>
+<table *ngIf="requests.length > 0">
+<thead>
+<tr>
+<th>ID</th>
+<th>Customer ID</th>
+<th>Type</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let r of requests">
+<td>{{ r.serviceRequestId }}</td>
+<td>{{ r.customerId }}</td>
+<td>{{ r.requestType }}</td>
+<td>{{ r.priority }}</td>
+<td>
+<span 
+
+              class="status"
+
+              [ngClass]="{
+
+                'pending': r.status === 'Pending',
+
+                'completed': r.status === 'Completed',
+
+                'rejected': r.status === 'Rejected'
+
+              }">
+
+              {{ r.status }}
+</span>
+</td>
+<td>{{ r.createdDate | date:'short' }}</td>
+</tr>
+</tbody>
+</table>
+<p *ngIf="requests.length === 0" class="no-data">
+
+      No requests yet
+</p>
+</div>
+</div>
+ 

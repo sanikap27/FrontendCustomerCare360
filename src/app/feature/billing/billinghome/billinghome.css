@@ -1,0 +1,66 @@
+.dashboard {
+
+  padding: 20px;
+
+}
+
+h2 {
+
+  margin-bottom: 20px;
+
+}
+
+/* CARDS */
+
+.cards {
+
+  display: flex;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+}
+
+.card {
+
+  flex: 1;
+
+  min-width: 200px;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  color: white;
+
+  text-align: center;
+
+  font-weight: bold;
+
+}
+
+.blue { background: #3b82f6; }
+
+.green { background: #22c55e; }
+
+.orange { background: #f59e0b; }
+
+.red { background: #ef4444; }
+
+/* TREND BOX */
+
+.trend-box {
+
+  margin-top: 30px;
+
+  padding: 20px;
+
+  background: white;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+
+}
+ 

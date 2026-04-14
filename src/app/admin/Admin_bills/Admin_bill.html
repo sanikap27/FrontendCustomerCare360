@@ -1,0 +1,43 @@
+<div class="card">
+<h2>Bills</h2>
+<table class="table-custom">
+<thead>
+<tr>
+<th>Bill ID</th>
+<th>Service Account</th>
+<th>Billing Cycle</th>
+<th>Usage</th>
+<th>Amount</th>
+<th>Due Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let b of bills">
+<td>{{ b.billId }}</td>
+<td>{{ b.serviceAccountId }}</td>
+<td>{{ b.billingCycleId }}</td>
+<td>{{ b.usage }}</td>
+<td>₹ {{ b.amount }}</td>
+<td>{{ b.dueDate | date:'shortDate' }}</td>
+<td>
+<span 
+
+            [ngClass]="{
+
+              'paid': b.status === 'Paid',
+
+              'pending': b.status === 'Pending',
+
+              'overdue': b.status === 'Overdue'
+
+            }">
+
+            {{ b.status }}
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 

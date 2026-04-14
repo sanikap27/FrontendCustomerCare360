@@ -1,0 +1,82 @@
+<div class="sidebar">
+<h3>Customer</h3>
+<ul>
+<li>
+<a class="nav-link"
+
+         routerLink="/customer-dashboard"
+
+         routerLinkActive="active-link"
+
+         [routerLinkActiveOptions]="{ exact: true }">
+         <i class="bi bi-speedometer2 me-2"></i>
+
+        Dashboard
+</a>
+</li>
+<li>
+<a class="nav-link"
+
+         routerLink="/customer-dashboard/services"
+
+         routerLinkActive="active-link">
+         
+<i class="bi bi-gear me-2"></i>
+
+        Services Request
+</a>
+</li>
+
+<li>
+<a class="nav-link"
+
+         routerLink="/customer-dashboard/bills"
+
+         routerLinkActive="active-link">
+         
+<i class="bi bi-receipt me-2"></i>
+
+        Bills
+</a>
+</li>
+<li>
+<a class="nav-link"
+
+         routerLink="/customer-dashboard/complaints"
+
+         routerLinkActive="active-link">
+         <i class="bi bi-exclamation-circle me-2"></i>
+
+        Complaints
+</a>
+</li>
+<li>
+<a class="nav-link"
+
+         routerLink="/customer-dashboard/notifications"
+
+         routerLinkActive="active-link">
+         
+<i class="bi bi-bell me-2"></i>
+
+        Notifications
+</a>
+</li>
+</ul>
+<button class="logout-btn" (click)="logout()">Logout</button>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

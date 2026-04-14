@@ -1,0 +1,29 @@
+<div class="profile-page">
+<div class="profile-card">
+<!-- Profile Header -->
+<div class="profile-header">
+<div class="avatar">
+<i class="fa fa-user"></i>
+</div>
+<h3>{{ user.name }}</h3>
+<p>{{ user.email }}</p>
+</div>
+<!-- Profile Details -->
+<div class="profile-body">
+<div class="field">
+<label>Name</label>
+<input [(ngModel)]="user.name" />
+</div>
+<div class="field">
+<label>Email</label>
+<input [(ngModel)]="user.email" />
+</div>
+<div class="field">
+<label>Phone</label>
+<input [(ngModel)]="user.phone" />
+</div>
+<button class="save-btn" (click)="update()">Save Changes</button>
+</div>
+</div>
+</div>
+ 

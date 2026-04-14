@@ -1,0 +1,100 @@
+.table-container {
+
+  margin-top: 20px;
+
+  background: #fff;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+
+  max-height: 400px;
+
+  overflow-y: auto;
+
+}
+
+/* TABLE */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+}
+
+/* HEADER */
+
+thead {
+
+  background: #1f1f1f;
+
+  color: white;
+
+}
+
+/* CELLS */
+
+th, td {
+
+  padding: 12px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #ddd;
+
+}
+
+/* STATUS COLORS */
+
+.status {
+
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  font-size: 12px;
+
+}
+
+.approved {
+
+  background: green;
+
+  color: white;
+
+}
+
+.pending {
+
+  background: orange;
+
+  color: white;
+
+}
+
+/* FIX HEIGHT ISSUE */
+
+tbody {
+
+  display: block;
+
+  max-height: 300px;
+
+  overflow-y: auto;
+
+}
+
+thead, tbody tr {
+
+  display: table;
+
+  width: 100%;
+
+  table-layout: fixed;
+
+}
+ 
