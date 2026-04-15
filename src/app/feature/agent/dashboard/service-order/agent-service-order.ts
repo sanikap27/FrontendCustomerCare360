@@ -1,12 +1,15 @@
-import { Component, OnInit, signal } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
+ 
 
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 import { AgentServiceOrderService } from '../Services/agent-service-order.service';
 
 import { ServiceOrder } from '../Models/service-order.model';
+
+import { CommonModule } from '@angular/common';
+
+import { FormsModule } from '@angular/forms';
 
 @Component({
 
@@ -24,115 +27,164 @@ import { ServiceOrder } from '../Models/service-order.model';
 
 export class AgentServiceOrderComponent implements OnInit {
 
-  orders = signal<ServiceOrder[]>([]);
+  orders: ServiceOrder[] = [];
 
-  selectedOrder = signal<ServiceOrder | null>(null);
+  newOrder: ServiceOrder = {
+
+    serviceOrderId: 0,
+
+    serviceAccountId: 0,
+
+    premiseId: 0,
+
+    orderType: '',
+
+    scheduledDate: new Date(),
+
+    completionDate: null,
+
+    status: 'Pending'
+
+  };
+
+  selectedOrder: ServiceOrder | null = null;
 
   constructor(private service: AgentServiceOrderService) {}
 
   ngOnInit() {
 
-    this.getOrders();
+    this.loadOrders();
 
   }
 
-  getOrders() {
+  // ✅ LOAD DATA
+
+  loadOrders() {
 
     this.service.getOrders().subscribe({
 
-      next: (res) => this.orders.set(res),
+      next: (res) => {
 
-      error: (err) => console.error(err)
-
-    });
-
-  }
-
-  editOrder(order: ServiceOrder) {
-
-    this.selectedOrder.set({ ...order });
-
-  }
-
-  updateOrder() {
-
-    const order = this.selectedOrder();
-
-    if (!order) return;
-
-    this.service.updateOrder(order.serviceOrderId, order).subscribe({
-
-      next: () => {
-
-        alert('Updated successfully');
-
-        this.selectedOrder.set(null);
-
-        this.getOrders();
+        this.orders = res;
 
       },
 
-      error: (err) => console.error(err)
+      error: (err) => {
+
+        console.error(err);
+
+      }
 
     });
 
   }
-  newOrder: ServiceOrder = {
 
-  serviceOrderId: 0,
+  // ✅ ADD ORDER
 
-  serviceAccountId: 0,
+  addOrder() {
 
-  premiseId: 0,
+    this.newOrder.scheduledDate = new Date(this.newOrder.scheduledDate);
 
-  orderType: '',
+    this.service.addOrder(this.newOrder).subscribe({
 
-  scheduledDate: '',
+      next: () => {
 
-  completionDate: '',
+        alert("Order Added Successfully ✅");
 
-  status: ''
+        this.loadOrders();
 
-};
+        this.resetForm();
 
-addOrder() {
+      },
 
-  this.service.addOrder(this.newOrder).subscribe({
+      error: (err) => {
 
-    next: () => {
+        console.error(err);
 
-      alert('Order created successfully');
+        alert("Failed to add order ❌");
 
-      this.getOrders();
+      }
 
-      // reset form
+    });
 
-      this.newOrder = {
+  }
 
-        serviceOrderId: 0,
+  // ✅ EDIT
 
-        serviceAccountId: 0,
+  editOrder(o: ServiceOrder) {
 
-        premiseId: 0,
+  this.selectedOrder = { ...o };
 
-        orderType: '',
+  // ✅ FIX HERE
 
-        scheduledDate: '',
+  if (this.selectedOrder.scheduledDate) {
 
-        completionDate: '',
+    this.selectedOrder.scheduledDate =
 
-        status: ''
+      new Date(this.selectedOrder.scheduledDate).toISOString().split('T')[0];
 
-      };
-
-    },
-
-    error: (err) => console.error(err)
-
-  });
+  }
 
 }
  
+
+  // ✅ UPDATE
+
+  updateOrder() {
+
+    if (!this.selectedOrder) return;
+
+    this.selectedOrder.scheduledDate = new Date(this.selectedOrder.scheduledDate);
+
+    this.service.updateOrder(this.selectedOrder.serviceOrderId, this.selectedOrder)
+
+      .subscribe({
+
+        next: () => {
+
+          alert("Order Updated ✅");
+
+          this.loadOrders();
+
+          this.selectedOrder = null;
+
+        },
+
+        error: (err) => {
+
+          console.error(err);
+
+          alert("Update failed ❌");
+
+        }
+
+      });
+
+  }
+
+  // ✅ RESET
+
+  resetForm() {
+
+    this.newOrder = {
+
+      serviceOrderId: 0,
+
+      serviceAccountId: 0,
+
+      premiseId: 0,
+
+      orderType: '',
+
+      scheduledDate: new Date(),
+
+      completionDate: null,
+
+      status: 'Pending'
+
+    };
+
+  }
 
 }
  

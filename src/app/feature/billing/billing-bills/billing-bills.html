@@ -36,7 +36,7 @@
 <td>{{bill.dueDate | date}}</td>
 <td>{{bill.status}}</td>
 <td>
-<button>Edit</button>
+<button (click)="editBill(bill)">Edit</button>
 <button (click)="deleteBill(bill.billId)">Delete</button>
 </td>
 </tr>

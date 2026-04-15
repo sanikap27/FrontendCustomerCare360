@@ -1,28 +1,24 @@
-h2 {
+.form {
+
+  display: flex;
+
+  gap: 10px;
 
   margin-bottom: 15px;
 
 }
 
-.form-box {
-
-  max-width: 400px;
-
-}
-
-input, textarea {
-
-  width: 100%;
+input, select {
 
   padding: 8px;
 
-  margin-bottom: 10px;
+  border-radius: 6px;
+
+  border: 1px solid #ccc;
 
 }
 
 button {
-
-  padding: 8px 15px;
 
   background: green;
 
@@ -30,7 +26,65 @@ button {
 
   border: none;
 
-  cursor: pointer;
+  padding: 8px 12px;
+
+  border-radius: 6px;
+
+}
+
+.notification-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+}
+
+.notification-table th {
+
+  background: #1e293b;
+
+  color: white;
+
+  padding: 10px;
+
+}
+
+.notification-table td {
+
+  padding: 10px;
+
+  border-bottom: 1px solid #ddd;
+
+}
+
+.notification-table tr:hover {
+
+  background: #f1f5f9;
+
+}
+
+.read {
+
+  background: green;
+
+  color: white;
+
+  padding: 4px 8px;
+
+  border-radius: 6px;
+
+}
+
+.unread {
+
+  background: red;
+
+  color: white;
+
+  padding: 4px 8px;
+
+  border-radius: 6px;
 
 }
  

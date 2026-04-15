@@ -1,23 +1,26 @@
 <app-sidebar></app-sidebar>
+
 <div class="main-content">
-<!-- HEADER -->
-<h2 class="dashboard-title">Customer Dashboard</h2>
-<!-- DASHBOARD BOX -->
-<div class="dashboard-container">
-<div class="cards">
-<div class="card blue">
-<h5>Services</h5>
-<h2>{{ counts.services }}</h2>
+  <h2 class="dashboard-title">Customer Dashboard</h2>
+
+  <div class="dashboard-container">
+    <div class="cards">
+      
+      <div class="card blue">
+        <h5>Services</h5>
+        <h2>{{ counts().services }}</h2>
+      </div>
+
+      <div class="card yellow">
+        <h5>Bills</h5>
+        <h2>{{ counts().bills }}</h2>
+      </div>
+
+      <div class="card red">
+        <h5>Complaints</h5>
+        <h2>{{ counts().complaints }}</h2>
+      </div>
+
+    </div>
+  </div>
 </div>
-<div class="card yellow">
-<h5>Bills</h5>
-<h2>{{ counts.bills }}</h2>
-</div>
-<div class="card red">
-<h5>Complaints</h5>
-<h2>{{ counts.complaints }}</h2>
-</div>
-</div>
-</div>
-</div>
- 

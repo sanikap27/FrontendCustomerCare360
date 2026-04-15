@@ -3,7 +3,12 @@
 <div class="form">
 <input type="number" [(ngModel)]="newAdjustment.billId" placeholder="Bill ID">
 <input type="text" [(ngModel)]="newAdjustment.reason" placeholder="Reason">
+
 <input type="number" [(ngModel)]="newAdjustment.amountDelta" placeholder="Amount">
+<input type="text" placeholder="Approved By"
+
+       [(ngModel)]="newAdjustment.approvedBy">
+ 
 <button (click)="addAdjustment()">Add</button>
 </div>
 <!-- TABLE -->

@@ -1,56 +1,58 @@
 <div class="card">
-<h2>Customer Reports</h2>
-<!-- FORM -->
-<div class="form">
-<!-- Scope Dropdown -->
-<select [(ngModel)]="newReport.scope">
-<option value="">Select Scope</option>
-<option value="Period">Period</option>
-<option value="Region">Region </option>
-<option value="Service Type">Service Type</option>
-</select>
-<!-- Metrics Dropdown -->
-<select [(ngModel)]="newReport.metrics">
-<option value="">Select Metrics</option>
-<option value="AvgResolutionTime">AvgResolutionTime</option>
-<option value="BillAdjustmentRate">BillAdjustmentRate</option>
-<option value="ComplaintsVolume">ComplaintsVolume</option>
-</select>
-<!-- Date -->
-<input type="date" [(ngModel)]="newReport.generatedDate" />
-<!-- Button -->
-<button class="btn-add" (click)="addReport()">
+  <h2>Customer Reports</h2>
 
+  <div class="form">
+    <select [ngModel]="newReport().scope" (ngModelChange)="updateFormField('scope', $event)">
+      <option value="">Select Scope</option>
+      <option value="Period">Period</option>
+      <option value="Region">Region</option>
+      <option value="Service Type">Service Type</option>
+    </select>
+
+    <select [ngModel]="newReport().metrics" (ngModelChange)="updateFormField('metrics', $event)">
+      <option value="">Select Metrics</option>
+      <option value="AvgResolutionTime">AvgResolutionTime</option>
+      <option value="BillAdjustmentRate">BillAdjustmentRate</option>
+      <option value="ComplaintsVolume">ComplaintsVolume</option>
+    </select>
+
+    <input type="date" [ngModel]="newReport().generatedDate" (ngModelChange)="updateFormField('generatedDate', $event)" />
+
+    <button class="btn-add" (click)="addReport()">
       Generate Report
-</button>
-</div>
-<!-- TABLE -->
-<table class="table-custom">
-<thead>
-<tr>
-<th>ID</th>
-<th>Scope</th>
-<th>Metrics</th>
-<th>Generated Date</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr *ngFor="let r of reports">
-<td>{{ r.customerReportId }}</td>
-<td>{{ r.scope }}</td>
-<td>{{ r.metrics }}</td>
-<td>{{ r.generatedDate | date:'shortDate' }}</td>
-<td>
-<button class="btn-delete"
+    </button>
+  </div>
 
-            (click)="deleteReport(r.customerReportId)">
-
-            Delete
-</button>
-</td>
-</tr>
-</tbody>
-</table>
+  <div class="table-container">
+    <table class="table-custom">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Scope</th>
+          <th>Metrics</th>
+          <th>Generated Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (r of reports(); track r.customerReportId) {
+          <tr>
+            <td>{{ r.customerReportId }}</td>
+            <td>{{ r.scope }}</td>
+            <td>{{ r.metrics }}</td>
+            <td>{{ r.generatedDate | date:'shortDate' }}</td>
+            <td>
+              <button class="btn-delete" (click)="deleteReport(r.customerReportId)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="text-center">No reports generated yet.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>
- 

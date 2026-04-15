@@ -1,41 +1,55 @@
 <div class="main-container">
-<!-- FORM -->
-<div class="form-card">
-<h2>Raise Complaint</h2>
-<select [(ngModel)]="category">
-<option value="">Select Category</option>
-<option>Billing</option>
-<option>Service</option>
-<option>Outage</option>
-</select>
-<textarea [(ngModel)]="description" placeholder="Enter description"></textarea>
-<button (click)="submitComplaint()">Submit</button>
+  <div class="form-card">
+    <h2>Raise Complaint</h2>
+    
+    <select [ngModel]="category()" (ngModelChange)="category.set($event)">
+      <option value="">Select Category</option>
+      <option>Billing</option>
+      <option>Service</option>
+      <option>Outage</option>
+    </select>
+
+    <textarea 
+      [ngModel]="description()" 
+      (ngModelChange)="description.set($event)" 
+      placeholder="Enter description">
+    </textarea>
+
+    <button (click)="submitComplaint()">Submit</button>
+  </div>
+
+  <div class="table-container">
+    <h3>My Complaints</h3>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of complaints(); track c.complaintId) {
+          <tr>
+            <td>{{ c.complaintId }}</td>
+            <td>{{ c.category }}</td>
+            <td>{{ c.description }}</td>
+            <td>{{ c.loggedDate | date:'short' }}</td>
+            <td>
+              <span class="status">{{ c.status }}</span>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" style="text-align: center; padding: 20px;">
+              No complaints found.
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>
-<!-- TABLE -->
-<div class="table-container">
-<h3>My Complaints</h3>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Category</th>
-<th>Description</th>
-<th>Date</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr *ngFor="let c of complaints">
-<td>{{ c.complaintId }}</td>
-<td>{{ c.category }}</td>
-<td>{{ c.description }}</td>
-<td>{{ c.loggedDate | date:'short' }}</td>
-<td>
-<span class="status">{{ c.status }}</span>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
- 

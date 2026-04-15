@@ -1,44 +1,49 @@
 <div class="notification-container">
-<div class="container mt-4">
-<h3 class="mb-4 fw-bold">Notifications</h3>
-<!-- No notifications -->
-<div *ngIf="notifications.length === 0" class="text-center text-muted">
-<i class="bi bi-bell fs-1"></i>
-<p>No notifications available</p>
-</div>
-<!-- Notifications List -->
-<div *ngFor="let n of notifications" class="notification-card d-flex align-items-start mb-3">
-<!-- Icon -->
-<div class="icon me-3">
-<i class="bi bi-bell-fill"></i>
-</div>
-<!-- Content -->
-<div class="flex-grow-1">
-<div class="d-flex justify-content-between">
-<h6 class="mb-1 fw-semibold">{{ n.message }}</h6>
-<span class="badge"
+  <div class="container mt-4">
+    <h3 class="mb-4 fw-bold">Notifications</h3>
 
-          [ngClass]="{
+    @if (notifications().length === 0 && !loading()) {
+      <div class="text-center text-muted">
+        <i class="bi bi-bell fs-1"></i>
+        <p>No notifications available</p>
+      </div>
+    }
 
-            'bg-success': n.status === 'Read',
+    @if (loading()) {
+      <div class="text-center">
+        <p>Loading notifications...</p>
+      </div>
+    }
 
-            'bg-danger': n.status === 'Unread'
+    @for (n of notifications(); track n.notificationId) {
+      <div class="notification-card d-flex align-items-start mb-3">
+        <div class="icon me-3">
+          <i class="bi bi-bell-fill"></i>
+        </div>
 
-          }">
-
-          {{ n.status }}
-</span>
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between">
+            <h6 class="mb-1 fw-semibold">{{ n.message }}</h6>
+            <span class="badge"
+              [ngClass]="{
+                'bg-success': n.status === 'Read',
+                'bg-danger': n.status === 'Unread'
+              }">
+              {{ n.status }}
+            </span>
+          </div>
+          <small class="text-muted">{{ n.category }}</small>
+          
+          @if (n.status === 'Unread') {
+            <div class="mt-2">
+              <button class="btn btn-sm btn-outline-primary"
+                      (click)="markAsRead(n.notificationId)">
+                Mark as Read
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
 </div>
-<small class="text-muted">{{ n.category }}</small>
-<div class="mt-2">
-<button class="btn btn-sm btn-outline-primary"
-
-                (click)="markAsRead(n.notificationId)">
-
-          Mark as Read
-</button>
-</div>
-</div>
-</div>
-</div>
- </div>

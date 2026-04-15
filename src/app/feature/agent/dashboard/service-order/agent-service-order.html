@@ -1,4 +1,8 @@
-<h2>Service Orders</h2>
+ 
+
+
+
+  <h2>Service Orders</h2>
 <table class="table">
 <thead>
 <tr>
@@ -12,7 +16,7 @@
 </tr>
 </thead>
 <tbody>
-<tr *ngFor="let o of orders()">
+<tr *ngFor="let o of orders">
 <td>{{ o.serviceOrderId }}</td>
 <td>{{ o.serviceAccountId }}</td>
 <td>{{ o.premiseId }}</td>
@@ -36,21 +40,20 @@
 <option>InProgress</option>
 <option>Completed</option>
 </select>
- 
 <button (click)="addOrder()">Add</button>
 </div>
- 
-<!-- EDIT FORM -->
-<div *ngIf="selectedOrder()" class="form">
+<!-- ✅ EDIT FORM -->
+<div *ngIf="selectedOrder" class="form">
 <h3>Edit Order</h3>
-<input [(ngModel)]="selectedOrder().orderType" placeholder="Type">
-<input [(ngModel)]="selectedOrder().status" placeholder="Status">
-<select [(ngModel)]="newOrder.status">
+<input [(ngModel)]="selectedOrder.serviceAccountId">
+<input [(ngModel)]="selectedOrder.premiseId">
+<input [(ngModel)]="selectedOrder.orderType">
+<input [(ngModel)]="selectedOrder.scheduledDate" type="date">
+<select [(ngModel)]="selectedOrder.status">
 <option>Pending</option>
 <option>InProgress</option>
 <option>Completed</option>
 </select>
- 
 <button (click)="updateOrder()">Update</button>
 </div>
  

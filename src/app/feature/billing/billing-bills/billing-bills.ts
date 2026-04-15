@@ -42,6 +42,7 @@ export class BillingBillsComponent implements OnInit {
  }
  editBill(b: Bill) {
    this.selectedBill = { ...b };
+  
  }
  updateBill() {
    if (!this.selectedBill) return;

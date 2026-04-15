@@ -1,47 +1,54 @@
 <div class="card">
-<h2>Complaints</h2>
-<!-- TABLE CONTAINER (IMPORTANT) -->
-<div class="table-container">
-<table class="table-custom">
-<thead>
-<tr>
-<th>ID</th>
-<th>Customer ID</th>
-<th>Category</th>
-<th>Description</th>
-<th>Logged Date</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr *ngFor="let c of complaints">
-<td>{{ c.complaintId }}</td>
-<td>{{ c.customerId }}</td>
-<td>{{ c.category }}</td>
-<td class="desc">{{ c.description }}</td>
-<td>{{ c.loggedDate | date:'short' }}</td>
-<td>
-<select [(ngModel)]="c.status" class="status-dropdown">
-<option>Open</option>
-<option>InProgress</option>
-<option>Resolved</option>
-<option>Closed</option>
-</select>
-</td>
-<td>
-<button class="btn-update" (click)="updateComplaint(c)">
+  <h2>Complaints</h2>
+  
+  @if (message()) {
+    <div class="alert-info">{{ message() }}</div>
+  }
 
-              Update
-</button>
-<button class="btn-delete" (click)="deleteComplaint(c.complaintId)">
-
-              Delete
-</button>
-</td>
-</tr>
-</tbody>
-</table>
+  <div class="table-container">
+    <table class="table-custom">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer ID</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Logged Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of complaints(); track c.complaintId) {
+          <tr>
+            <td>{{ c.complaintId }}</td>
+            <td>{{ c.customerId }}</td>
+            <td>{{ c.category }}</td>
+            <td class="desc">{{ c.description }}</td>
+            <td>{{ c.loggedDate | date:'short' }}</td>
+            <td>
+              <select [(ngModel)]="c.status" class="status-dropdown">
+                <option>Open</option>
+                <option>InProgress</option>
+                <option>Resolved</option>
+                <option>Closed</option>
+              </select>
+            </td>
+            <td>
+              <button class="btn-update" (click)="updateComplaint(c)">
+                Update
+              </button>
+              <button class="btn-delete" (click)="deleteComplaint(c.complaintId)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="7" class="text-center">No complaints found.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
- 

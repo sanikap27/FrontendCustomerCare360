@@ -26,7 +26,7 @@ export class RegisterComponent {
     email: ['', [Validators.required, Validators.email]],
     phone: ['', Validators.required],
     password: ['', Validators.required],
-    // role: ['', Validators.required]
+    role: ['', Validators.required]
   });
 
   onRegister() {

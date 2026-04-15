@@ -11,7 +11,6 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home';
 import { ServiceRequestsComponent } from './admin/service-requests/service-requests';
 import { CustomerReportsComponent } from './admin/CustomerReport/CustomerReports';
 import { BillingCyclesComponent } from './admin/billing-cycles/billing-cycles';
-import { ServiceOrdersComponent } from './admin/service-orders/service-orders';
 import { CustomerHomeComponent } from './feature/customer/dashboard/customer-home/customer-home';
 import { BillsComponent } from './feature/customer/bills/bills';
 import { ComplaintsComponent } from './feature/customer/complaints/complaints';
@@ -133,7 +132,7 @@ export const routes: Routes = [
 
       { path: 'service-requests', component: ServiceRequestsComponent },
 
-      { path: 'service-orders', component: ServiceOrdersComponent },
+ 
 
       { path: 'billing-cycles', component: BillingCyclesComponent },
 

@@ -1,46 +1,49 @@
 <div class="card">
-<h2>Billing Cycles</h2>
-<table class="table-custom">
-<thead>
-<tr>
-<th>Cycle ID</th>
-<th>Service Type</th>
-<th>Period Start</th>
-<th>Period End</th>
-<th>Bill Date</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr *ngFor="let c of cycles">
-<td>{{ c.billingCycleID }}</td>
-<td>{{ c.serviceType }}</td>
-<td>{{ c.periodStart | date:'shortDate' }}</td>
-<td>{{ c.periodEnd | date:'shortDate' }}</td>
-<td>{{ c.billDate | date:'shortDate' }}</td>
-<td>
-<span 
-
-            [ngClass]="{
-
-              'status-open': c.status === 'Open',
-
-              'status-completed': c.status === 'Completed'
-
-            }">
-
-            {{ c.status }}
-</span>
-</td>
-<td>
-<button class="btn-delete" (click)="deleteCycle(c.billingCycleID)">
-
-            Delete
-</button>
-</td>
-</tr>
-</tbody>
-</table>
+  <h2>Billing Cycles</h2>
+  
+  <div class="table-container">
+    <table class="table-custom">
+      <thead>
+        <tr>
+          <th>Cycle ID</th>
+          <th>Service Type</th>
+          <th>Period Start</th>
+          <th>Period End</th>
+          <th>Bill Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of cycles(); track c.billingCycleID) {
+          <tr>
+            <td>{{ c.billingCycleID }}</td>
+            <td>{{ c.serviceType }}</td>
+            <td>{{ c.periodStart | date:'shortDate' }}</td>
+            <td>{{ c.periodEnd | date:'shortDate' }}</td>
+            <td>{{ c.billDate | date:'shortDate' }}</td>
+            <td>
+              <span [ngClass]="{
+                    'status-open': c.status === 'Open',
+                    'status-completed': c.status === 'Completed'
+                  }">
+                {{ c.status }}
+              </span>
+            </td>
+            <td>
+              <button class="btn-delete" (click)="deleteCycle(c.billingCycleID)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="7" style="text-align: center; padding: 20px;" class="text-muted">
+              No billing cycles available.
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>
- 

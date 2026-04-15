@@ -52,15 +52,15 @@ h2 {
 
 /* Status colors */
 
-.paid {
+.Generated {
 
-  color: #2ecc71;
+  color: #19c460;
 
   font-weight: bold;
 
 }
 
-.pending {
+.Adjusted {
 
   color: #f39c12;
 
@@ -68,7 +68,7 @@ h2 {
 
 }
 
-.overdue {
+.Closed {
 
   color: #e74c3c;
 

@@ -1,77 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-
-import { CommonModule } from '@angular/common';
-
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { NgClass } from '@angular/common'; // Specific import for cleaner code
 import { NotificationDTO } from '../../auth/models/notification-dto';
-
 import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
-
   selector: 'app-notifications',
-
   standalone: true,
-
-  imports: [CommonModule],
-
+  imports: [NgClass], // Using NgClass specifically instead of the whole CommonModule
   templateUrl: './notification.html',
-
   styleUrls: ['./notification.css']
-
 })
-
 export class NotificationsComponent implements OnInit {
+  // Use modern inject function
+  private readonly service = inject(NotificationService);
 
-  notifications: NotificationDTO[] = [];
-
-  loading = false;
-
-
-  constructor(private service: NotificationService) {}
+  // Reactive signals
+  notifications = signal<NotificationDTO[]>([]);
+  loading = signal<boolean>(false);
 
   ngOnInit(): void {
-
     this.loadNotifications();
-
   }
 
-  loadNotifications() {
-
-    this.loading = true;
+  loadNotifications(): void {
+    this.loading.set(true);
 
     this.service.getMyNotifications().subscribe({
-
       next: (res) => {
-        console.log("Notifications:", res);
-
-        this.notifications = res;
-
-        this.loading = false;
-
+        console.log("Notifications fetched:", res);
+        this.notifications.set(res);
+        this.loading.set(false);
       },
-
-      error: () => {
-        console.log('Failed to load notifications');
-
+      error: (err) => {
+        console.error('Failed to load notifications', err);
         alert('Failed to load notifications');
-
-        this.loading = false;
-
+        this.loading.set(false);
       }
-
     });
-
   }
 
-  markAsRead(id: number) {
-
-    this.service.markAsRead(id).subscribe(() => {
-
-      this.loadNotifications();
-
+  markAsRead(id: number): void {
+    this.service.markAsRead(id).subscribe({
+      next: () => {
+        // Refresh the list after marking as read
+        this.loadNotifications();
+      },
+      error: (err) => console.error('Error updating status:', err)
     });
-
   }
-
 }
- 

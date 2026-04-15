@@ -8,9 +8,9 @@ export interface ServiceOrder {
 
   orderType: string;
 
-  scheduledDate?: string;
+  scheduledDate: Date |string;
 
-  completionDate?: string;
+  completionDate?: Date;
 
   status: string;
 

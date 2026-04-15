@@ -1,48 +1,68 @@
 <div class="card">
-<h2>Premises</h2>
-<!-- Form -->
-<div class="form-row">
-<input [(ngModel)]="newPremise.address" placeholder="Address">
-<input [(ngModel)]="newPremise.region" placeholder="Region">
-<input [(ngModel)]="newPremise.meterId" placeholder="Meter ID">
-<select [(ngModel)]="newPremise.status">
-<option>Energized</option>
-<option>Disconnected</option>
-</select>
-<button class="btn-add" (click)="addPremise()">+ Add</button>
-</div>
-<!-- Table -->
-<table class="table">
-<thead>
-<tr>
-<th>ID</th>
-<th>Address</th>
-<th>Region</th>
-<th>Meter</th>
-<th>Status</th>
-<th>Actions</th>
-</tr>
-</thead>
-<tbody>
-<tr *ngFor="let p of premises">
-<td>{{p.premiseId}}</td>
-<td>{{p.address}}</td>
-<td>{{p.region}}</td>
-<td>{{p.meterId}}</td>
-<td>
-<span class="status" [ngClass]="p.status.toLowerCase()">
+  <h2>Premises</h2>
 
-            {{p.status}}
-</span>
-</td>
-<td>
-<button class="btn-delete" (click)="deletePremise(p.premiseId)">
+  <div class="form-row">
+    <input 
+      [ngModel]="newPremise().address" 
+      (ngModelChange)="updateFormField('address', $event)" 
+      placeholder="Address">
+    
+    <input 
+      [ngModel]="newPremise().region" 
+      (ngModelChange)="updateFormField('region', $event)" 
+      placeholder="Region">
+    
+    <input 
+      [ngModel]="newPremise().meterId" 
+      (ngModelChange)="updateFormField('meterId', $event)" 
+      placeholder="Meter ID">
+    
+    <select 
+      [ngModel]="newPremise().status" 
+      (ngModelChange)="updateFormField('status', $event)">
+      <option value="Energized">Energized</option>
+      <option value="Disconnected">Disconnected</option>
+    </select>
+    
+    <button class="btn-add" (click)="addPremise()">+ Add</button>
+  </div>
 
-            Delete
-</button>
-</td>
-</tr>
-</tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Address</th>
+        <th>Region</th>
+        <th>Meter</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (p of premises(); track p.premiseId) {
+        <tr>
+          <td>{{ p.premiseId }}</td>
+          <td>{{ p.address }}</td>
+          <td>{{ p.region }}</td>
+          <td>{{ p.meterId }}</td>
+          <td>
+            <span class="status" [ngClass]="p.status.toLowerCase()">
+              {{ p.status }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-delete" (click)="deletePremise(p.premiseId)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="6" style="text-align: center; padding: 20px;" class="text-muted">
+            No premises found.
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
 </div>
- 

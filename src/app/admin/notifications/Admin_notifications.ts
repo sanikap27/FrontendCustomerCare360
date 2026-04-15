@@ -1,55 +1,89 @@
-import { Component, OnInit } from '@angular/core';
-import { NotificationService } from '../services/notification.service';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { filter } from 'rxjs';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
-  selector: 'app-notifications',
-  imports: [CommonModule,FormsModule],
+  selector: 'app-admin-notifications',
+  standalone: true,
+  imports: [FormsModule, DatePipe],
   templateUrl: './Admin_notifications.html',
   styleUrl: './Admin_notifications.css',
 })
-
 export class Admin_NotificationsComponent implements OnInit {
- notifications: any[] = [];
- newNotification = {
-   userId: '0',
-   message: '',
-   category: 'bill'
- };
- successMsg = '';
- constructor(private service: NotificationService, private router: Router) {}
- ngOnInit() {
-   this.loadNotifications();
-   // ✅ Fix standalone issue
-   this.router.events
-     .pipe(filter(e => e instanceof NavigationEnd))
-     .subscribe(() => {
-       this.loadNotifications();
-     });
- }
- loadNotifications() {
-   this.service.getAllNotifications().subscribe((res: any) => {
-     this.notifications = res;
-   });
- }
- createNotification() {
-   this.service.createNotification(this.newNotification).subscribe(() => {
-     this.successMsg = "Notification created successfully ✅";
-     this.loadNotifications();
-     this.newNotification = {
-       userId: '',
-       message: '',
-       category: 'General'
-     };
-   });
- }
- deleteNotification(id: number) {
-   this.service.deleteNotification(id).subscribe(() => {
-     this.successMsg = "Notification deleted successfully ❌";
-     this.notifications = this.notifications.filter(n => n.notificationId !== id);
-   });
- }
+  // Use modern inject function
+  private readonly service = inject(NotificationService);
+  private readonly router = inject(Router);
+
+  // Signal-based state management
+  notifications = signal<any[]>([]);
+  successMsg = signal<string>('');
+  
+  // Signal for the form object
+  newNotification = signal({
+    userId: '',
+    message: '',
+    category: 'Bill'
+  });
+
+  ngOnInit(): void {
+    this.loadNotifications();
+
+    // Re-load notifications on navigation ends
+    this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe(() => this.loadNotifications());
+  }
+
+  loadNotifications(): void {
+    this.service.getAllNotifications().subscribe({
+      next: (res: any) => this.notifications.set(res),
+      error: (err) => console.error('Failed to load notifications', err)
+    });
+  }
+
+  updateFormField(field: string, value: any): void {
+    this.newNotification.update(prev => ({ ...prev, [field]: value }));
+  }
+
+  createNotification(): void {
+    const payload = this.newNotification();
+    
+    this.service.createNotification(payload).subscribe({
+      next: () => {
+        this.successMsg.set("Notification created successfully ✅");
+        this.loadNotifications();
+        
+        // Reset form signal
+        this.newNotification.set({
+          userId: '',
+          message: '',
+          category: 'Bill'
+        });
+
+        this.clearMessage();
+      },
+      error: (err) => console.error('Creation failed', err)
+    });
+  }
+
+  deleteNotification(id: number): void {
+    if (!confirm('Are you sure you want to delete this notification?')) return;
+
+    this.service.deleteNotification(id).subscribe({
+      next: () => {
+        this.successMsg.set("Notification deleted successfully ❌");
+        // Efficiently update UI without a full reload
+        this.notifications.update(prev => prev.filter(n => n.notificationId !== id));
+        this.clearMessage();
+      },
+      error: (err) => console.error('Delete failed', err)
+    });
+  }
+
+  private clearMessage(): void {
+    setTimeout(() => this.successMsg.set(''), 3000);
+  }
 }

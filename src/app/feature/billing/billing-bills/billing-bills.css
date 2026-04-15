@@ -92,7 +92,7 @@ button:nth-child(2) {
  
 .add-btn {
 
-  background-color: #22c55e;   /* green */
+  background-color: #487fe6;   /* green */
 
   color: white;
 
@@ -110,7 +110,7 @@ button:nth-child(2) {
 
 .add-btn:hover {
 
-  background-color: #16a34a;
+  background-color: #2686db;
 
 }
  

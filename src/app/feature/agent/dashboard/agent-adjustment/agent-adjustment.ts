@@ -35,6 +35,7 @@ export class AgentAdjustmentComponent implements OnInit {
     reason: '',
 
     amountDelta: 0,
+    approvedBy:'',
 
     status: 'Pending'
 
@@ -62,6 +63,7 @@ export class AgentAdjustmentComponent implements OnInit {
 
   addAdjustment() {
 
+    
     this.service.addAdjustment(this.newAdjustment).subscribe({
 
       next: () => {

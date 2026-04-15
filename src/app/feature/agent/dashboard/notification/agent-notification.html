@@ -1,8 +1,43 @@
-<h2>Send Notification</h2>
-<div class="form-box">
-<input type="number" [(ngModel)]="notification.userId" placeholder="User ID">
-<input type="text" [(ngModel)]="notification.category" placeholder="Category">
-<textarea [(ngModel)]="notification.message" placeholder="Message"></textarea>
-<button (click)="sendNotification()">Send</button>
+<h2>Notifications</h2>
+<div class="form">
+<input type="number" [(ngModel)]="newNotification.userId" placeholder="User ID">
+<input type="text" [(ngModel)]="newNotification.message" placeholder="Message">
+<select [(ngModel)]="newNotification.category">
+<option>Billing</option>
+<option>Service</option>
+<option>General</option>
+</select>
+<button (click)="sendNotification()">Send Notification</button>
 </div>
+<table class="notification-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>User ID</th>
+<th>Message</th>
+<th>Category</th>
+<th>Status</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let n of notifications">
+<td>{{n.id}}</td>
+<td>{{n.userId}}</td>
+<td>{{n.message}}</td>
+<td>{{n.category}}</td>
+<td>
+<span [ngClass]="n.status === 'Read' ? 'read' : 'unread'">
+
+          {{n.status}}
+</span>
+</td>
+<td>{{n.date | date:'short'}}</td>
+<td>
+<button (click)="deleteNotification(n.id)">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
  
