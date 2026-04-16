@@ -22,7 +22,7 @@ export class PremisesComponent implements OnInit {
     address: '',
     region: '',
     meterId: '',
-    status: 'Energized'
+    status: ''
   });
 
   ngOnInit(): void {

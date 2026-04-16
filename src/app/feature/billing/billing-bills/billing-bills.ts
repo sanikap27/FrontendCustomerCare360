@@ -35,9 +35,10 @@ export class BillingBillsComponent implements OnInit {
  }
  addBill() {
    this.service.create(this.newBill).subscribe(() => {
-    alert("Bill Added Successfully!!!")
+
         this.loadData();
-     this.resetForm();
+            alert("Bill Added Successfully!!!")
+       this.resetForm();
    });
  }
  editBill(b: Bill) {
@@ -48,8 +49,9 @@ export class BillingBillsComponent implements OnInit {
    if (!this.selectedBill) return;
    this.service.update(this.selectedBill.billId, this.selectedBill)
      .subscribe(() => {
-      alert("Bill Updated!!!")
+     
        this.loadData();
+        alert("Bill Updated!!!")
        this.selectedBill = null;
      });
  }

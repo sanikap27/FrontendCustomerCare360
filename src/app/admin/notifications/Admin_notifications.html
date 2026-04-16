@@ -12,6 +12,7 @@
 
     <select [ngModel]="newNotification().category" 
             (ngModelChange)="updateFormField('category', $event)">
+              <option value="" disabled selected>Select Category</option>
       <option value="Bill">Bill</option>
       <option value="Service">Service</option>
       <option value="Complaint">Complaint</option>

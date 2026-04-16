@@ -6,21 +6,36 @@
            [ngModel]="form().userId" 
            (ngModelChange)="updateField('userId', $event)" 
            placeholder="User ID">
-    
-    <input type="text" 
+
+           <!-- <select [(ngModel)]="form().userId" name="userId">
+<option value="" disabled>Select User ID</option>
+<option *ngFor="let u of users" [value]="u.userId">
+   {{ u.userId }} -{{u.name}}
+</option>
+</select> -->
+      <select
            [ngModel]="form().customerType" 
            (ngModelChange)="updateField('customerType', $event)" 
            placeholder="Customer Type">
+            <option value="" disabled selected>Select CustomerType</option>
+           <option value="Active">Residential</option>
+      <option value="Inactive">Commercial</option>
+         <option value="Inactive">Industrial</option>
+  </select>
     
     <input type="text" 
            [ngModel]="form().contactInfo" 
            (ngModelChange)="updateField('contactInfo', $event)" 
            placeholder="Contact Info">
-    
-    <input type="text" 
+    <select
+   
            [ngModel]="form().status" 
            (ngModelChange)="updateField('status', $event)" 
            placeholder="Status">
+           <option value="" disabled selected>Select Status</option>
+           <option value="Active">Active</option>
+      <option value="Inactive">Inactive</option>
+  </select>
     
     <button class="add-btn" (click)="saveCustomer()">
       {{ isEdit() ? 'Update' : 'Add' }}

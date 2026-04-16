@@ -19,15 +19,16 @@ export class RegisterComponent {
   private router = inject(Router);
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
-
+// constructor(private router:Router,private fb:FormBuilder,private authservice:AuthService){}
   // ✅ Reactive form setup
   form = this.fb.nonNullable.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', Validators.required],
-    password: ['', Validators.required],
+    password: ['', Validators.required,Validators.minLength(6),Validators.pattern( '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&]).+$')],
     role: ['', Validators.required]
   });
+
 
   onRegister() {
     if (this.form.invalid) {
@@ -49,3 +50,5 @@ export class RegisterComponent {
       });
   }
 }
+
+

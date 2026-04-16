@@ -6,17 +6,20 @@
   <div class="dashboard-container">
     <div class="cards">
       
-      <div class="card blue">
-        <h5>Services</h5>
+      <div class="card blue"
+        (click)="router.navigate(['/customer-dashboard/services'])">
+        <h5>Services Request</h5>
         <h2>{{ counts().services }}</h2>
       </div>
 
-      <div class="card yellow">
+      <div class="card yellow"
+      (click)="router.navigate(['/customer-dashboard/bills'])">
         <h5>Bills</h5>
         <h2>{{ counts().bills }}</h2>
       </div>
 
-      <div class="card red">
+      <div class="card red"
+      (click)="router.navigate(['/customer-dashboard/complaints'])">
         <h5>Complaints</h5>
         <h2>{{ counts().complaints }}</h2>
       </div>

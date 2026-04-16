@@ -28,6 +28,7 @@
             <td>{{ c.loggedDate | date:'short' }}</td>
             <td>
               <select [(ngModel)]="c.status" class="status-dropdown">
+                 <option value="" disabled selected>select</option>
                 <option>Open</option>
                 <option>InProgress</option>
                 <option>Resolved</option>

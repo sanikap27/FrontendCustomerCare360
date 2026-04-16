@@ -4,17 +4,19 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Sidebar } from "../../../../shared/components/sidebar/sidebar";
 import { environment } from '../../../../../environment/environment';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-customer-home',
   standalone: true,
-  imports: [Sidebar, CommonModule, FormsModule],
+  imports: [Sidebar, CommonModule, FormsModule,RouterModule],
   templateUrl: './customer-home.html',
   styleUrls: ['./customer-home.css']
 })
 export class CustomerHomeComponent implements OnInit {
   // Inject HttpClient using the modern inject() function
   private readonly http = inject(HttpClient);
+ public readonly router=inject(Router);
 
   // Use a Signal for the dashboard counts
   counts = signal({
@@ -59,4 +61,6 @@ export class CustomerHomeComponent implements OnInit {
       error: (err) => console.error("Bill API Error:", err)
     });
   }
+
+  
 }

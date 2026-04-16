@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environment/environment';
 
 @Injectable({ providedIn: 'root' })
 
@@ -8,7 +9,7 @@ export class ServiceAccountService {
 
   private http = inject(HttpClient);
 
-  private baseUrl = 'http://localhost:5000/api/ServiceAccount';
+   private baseUrl = `${environment.apiUrl}/ServiceAccount`;
 
   getAll() {
 

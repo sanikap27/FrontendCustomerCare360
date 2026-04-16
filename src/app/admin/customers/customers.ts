@@ -28,7 +28,14 @@ export class CustomersComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.loadCustomers();
+    this.loadCustomers();//from this new code start
+//     const savedUserId=localStorage.getItem('userId');
+//     if(savedUserId){
+// this.form.update(prev => ({
+//   ...prev,
+//   userId:+savedUserId
+// }));
+//     }
   }
 
   loadCustomers(): void {

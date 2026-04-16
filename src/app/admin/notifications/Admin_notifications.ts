@@ -25,7 +25,7 @@ export class Admin_NotificationsComponent implements OnInit {
   newNotification = signal({
     userId: '',
     message: '',
-    category: 'Bill'
+    category: ''
   });
 
   ngOnInit(): void {
@@ -60,7 +60,7 @@ export class Admin_NotificationsComponent implements OnInit {
         this.newNotification.set({
           userId: '',
           message: '',
-          category: 'Bill'
+          category: ''
         });
 
         this.clearMessage();

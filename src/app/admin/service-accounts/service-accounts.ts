@@ -25,7 +25,7 @@ export class ServiceAccountsComponent implements OnInit {
     serviceType: '',
     startDate: '',
     endDate: '',
-    status: 'Active'
+    status: ''
   });
 
   ngOnInit(): void {

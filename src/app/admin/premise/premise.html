@@ -20,6 +20,7 @@
     <select 
       [ngModel]="newPremise().status" 
       (ngModelChange)="updateFormField('status', $event)">
+       <option value="" disabled selected>select status</option>
       <option value="Energized">Energized</option>
       <option value="Disconnected">Disconnected</option>
     </select>
